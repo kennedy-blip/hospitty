@@ -7,7 +7,7 @@ A clean, responsive front-end web appl ication template designed for hospitals, 
 ```text
 hospital_project/
 ├── index.html      # Main resp onsive  web page (HTML5, embedded CSS3, and interactive JS)
-└── README.md       # Project documentation and setup ins tructions
+└── README.md       # Project documentation and setup ins truct ions
 ```
 
 ## Features
