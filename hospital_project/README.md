@@ -1,6 +1,6 @@
 # Hospital Management & Patient Portal (`St. Jude Medical Center`)
 
-A clean, responsive front-end web appl ication t emplate designed for hospitals, clinics, and medical centers. It enables patients to explore clinical departments, view sp ecialist profiles, access emergency contact num bers, and submit appointment requests.
+A clean, responsive front-end web appl ication t emplate designed for hospitals, clinics, and medical centers. It enables patients to explore clinical departments, view sp ecialist profiles, access emergency contact num bers, and submit appointment reque sts.
 
 ## Project Structure
 
