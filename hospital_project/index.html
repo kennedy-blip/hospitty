@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Jude Medical Center | Compassionate Care & Advanced Medicine</title>
+    <style>
+        :root {
+            --primary: #0f4c81;
+            --secondary: #008080;
+            --accent: #e63946;
+            --light: #f4f7f9;
+            --dark: #1d2d35;
+            --text: #333333;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+        /* Top Emergency Bar */
+        .emergency-bar {
+            background-color: var(--accent);
+            color: white;
+            text-align: center;
+            padding: 8px 15px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        /* Header & Navigation */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .logo span {
+            color: var(--secondary);
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: var(--secondary);
+        }
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background-color: var(--secondary);
+        }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(15, 76, 129, 0.85), rgba(0, 128, 128, 0.85)), url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?auto=format&fit=crop&w=1600&q=80') center/cover;
+            color: white;
+            padding: 100px 20px;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+        /* Section Containers */
+        section {
+            padding: 70px 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            font-size: 2.2rem;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        .section-title p {
+            color: #666;
+        }
+        /* Grid Layouts */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.04);
+            transition: transform 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 12px;
+        }
+        /* Doctors */
+        .doctor-card {
+            background: white;
+            border: 1px solid #e1e8ed;
+            border-radius: 8px;
+            padding: 25px;
+            text-align: center;
+        }
+        .avatar {
+            width: 80px;
+            height: 80px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+            margin: 0 auto 15px;
+        }
+        .specialty {
+            color: var(--secondary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        /* Appointment Form */
+        .appointment-section {
+            background-color: var(--light);
+            border-radius: 12px;
+            padding: 50px;
+        }
+        form {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.9rem;
+        }
+        input, select, textarea {
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        .full-width {
+            grid-column: 1 / -1;
+        }
+        #confirmation-msg {
+            display: none;
+            background: #d4edda;
+            color: #155724;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 600;
+        }
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: #ccc;
+            padding: 50px 20px 20px;
+            margin-top: 50px;
+        }
+        .footer-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+        footer h4 {
+            color: white;
+            margin-bottom: 15px;
+        }
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #334;
+            padding-top: 20px;
+            font-size: 0.85rem;
+        }
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .hero h1 { font-size: 2rem; }
+            .appointment-section { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="emergency-bar">
+        24/7 Emergency Hotline: +1 (800) 555-0199 | Ambulance Dispatch Available Immediately
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">✚ St. Jude <span>Medical Center</span></a>
+            <nav>
+                <ul>
+                    <li><a href="#departments">Departments</a></li>
+                    <li><a href="#doctors">Specialists</a></li>
+                    <li><a href="#appointment">Appointments</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+            <a href="#appointment" class="btn">Book Visit</a>
+        </div>
+    </header>
+
+    <div class="hero">
+        <h1>World-Class Healthcare, Close to Home</h1>
+        <p>Combining advanced medical technology with compassionate, patient-centered care across over 25 specialized departments.</p>
+        <a href="#appointment" class="btn" style="background-color: var(--secondary); font-size: 1.1rem;">Schedule an Appointment</a>
+    </div>
+
+    <section id="departments">
+        <div class="section-title">
+            <h2>Clinical Departments</h2>
+            <p>Comprehensive diagnostic, therapeutic, and surgical care under one roof.</p>
+        </div>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Cardiology</h3>
+                <p>Non-invasive cardiac imaging, interventional catheterization, and preventive heart health programs.</p>
+            </div>
+            <div class="card">
+                <h3>Neurology</h3>
+                <p>Specialized treatment for stroke, epilepsy, neuromuscular disorders, and neurosurgical consultations.</p>
+            </div>
+            <div class="card">
+                <h3>Pediatrics</h3>
+                <p>Dedicated neonatal intensive care, routine immunizations, and adolescent wellness services.</p>
+            </div>
+            <div class="card">
+                <h3>Orthopedics</h3>
+                <p>Joint replacement, sports medicine, spine care, and comprehensive physical rehabilitation.</p>
+            </div>
+            <div class="card">
+                <h3>Oncology</h3>
+                <p>Multidisciplinary cancer care featuring precision radiation therapy, immunotherapy, and support services.</p>
+            </div>
+            <div class="card">
+                <h3>Emergency & Trauma</h3>
+                <p>Level I Trauma Center staffed round-the-clock by board-certified emergency physicians.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="doctors">
+        <div class="section-title">
+            <h2>Meet Our Specialists</h2>
+            <p>Experienced physicians dedicated to clinical excellence.</p>
+        </div>
+        <div class="grid-3">
+            <div class="doctor-card">
+                <div class="avatar">DR</div>
+                <h3>Dr. Elena Rostova, MD</h3>
+                <div class="specialty">Chief of Cardiology</div>
+                <p>18+ years experience in interventional cardiology and heart failure management.</p>
+            </div>
+            <div class="doctor-card">
+                <div class="avatar">MC</div>
+                <h3>Dr. Marcus Chen, MD</h3>
+                <div class="specialty">Head of Neurology</div>
+                <p>Fellowship-trained specialist in cerebrovascular disease and neurocritical care.</p>
+            </div>
+            <div class="doctor-card">
+                <div class="avatar">SA</div>
+                <h3>Dr. Sarah Al-Mansoor, MD</h3>
+                <div class="specialty">Senior Pediatrician</div>
+                <p>Board-certified pediatrician focused on developmental health and preventive care.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="appointment">
+        <div class="appointment-section">
+            <div class="section-title">
+                <h2>Book an Appointment</h2>
+                <p>Fill out the form below and our patient coordinator will confirm your slot within 2 hours.</p>
+            </div>
+            <form id="bookingForm">
+                <div class="form-group">
+                    <label for="fullName">Patient Full Name *</label>
+                    <input type="text" id="fullName" required placeholder="Jane Doe">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" required placeholder="+1 (555) 234-5678">
+                </div>
+                <div class="form-group">
+                    <label for="department">Department *</label>
+                    <select id="department" required>
+                        <option value="">Select a Department</option>
+                        <option value="Cardiology">Cardiology</option>
+                        <option value="Neurology">Neurology</option>
+                        <option value="Pediatrics">Pediatrics</option>
+                        <option value="Orthopedics">Orthopedics</option>
+                        <option value="General Medicine">General Medicine</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="date">Preferred Date *</label>
+                    <input type="date" id="date" required>
+                </div>
+                <div class="form-group full-width">
+                    <label for="notes">Symptoms or Additional Notes</label>
+                    <textarea id="notes" rows="3" placeholder="Briefly describe your reason for visiting..."></textarea>
+                </div>
+                <div class="full-width" style="text-align: center;">
+                    <button type="submit" class="btn" style="padding: 14px 40px; font-size: 1rem;">Confirm Appointment Request</button>
+                </div>
+            </form>
+            <div id="confirmation-msg"></div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-grid">
+            <div>
+                <h4>St. Jude Medical Center</h4>
+                <p>1200 Healthcare Boulevard<br>Medical District, NY 10016</p>
+            </div>
+            <div>
+                <h4>Visiting Hours</h4>
+                <p>General Wards: 10:00 AM – 8:00 PM<br>ICU / Critical Care: 11:00 AM – 1:00 PM & 5:00 PM – 7:00 PM</p>
+            </div>
+            <div>
+                <h4>Contact & Support</h4>
+                <p>Main Desk: +1 (800) 555-0140<br>Email: care@stjudemedical.example.com</p>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 St. Jude Medical Center. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('bookingForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('fullName').value;
+            const dept = document.getElementById('department').value;
+            const date = document.getElementById('date').value;
+            
+            const msgBox = document.getElementById('confirmation-msg');
+            msgBox.style.display = 'block';
+            msgBox.textContent = `Thank you, ${name}. Your appointment request for ${dept} on ${date} has been received. Our team will contact you shortly.`;
+            this.reset();
+        });
+    </script>
+</body>
+</html>
